@@ -9,14 +9,13 @@ from sqlalchemy import exc
 etiquetas = Blueprint('etiquetas', __name__)
 
 
-@etiquetas.route('/api/etiquetas/<int:celula_id>', methods=['GET'])
-def etiquetas_proyecto(celula_id):
-    query = db_session.query(Etiqueta)
-    
+@etiquetas.route('/api/etiquetas', methods=['GET'])
+def listado_etiquetas():
 
-    texto = request.args.get('texto')    
+    query = db_session.query(Etiqueta)    
+    texto = request.args.get('texto')
     if texto:
-        campos = [Etiqueta.id, Etiqueta.celula_id, Etiqueta.valor, Etiqueta.validacion]
+        campos = [Etiqueta.nombre, Etiqueta.ruta_ejemplo, Etiqueta.descripcion]
         query = queryLike(query, texto, campos)
     
     resultado = query.all()
@@ -24,10 +23,37 @@ def etiquetas_proyecto(celula_id):
     datos = list()
     for row in resultado:
         datos.append({
-            'id': row.id,
-            'celula_id': row.celula_id,
-            'valor': row.valor,
-            'validacion': True
+            'nombre': row.nombre,
+            'ruta_ejemplo': row.ruta_ejemplo,
+            'descripcion': row.descripcion
         })
 
     return jsonify(etiquetas=datos), 200
+
+@etiquetas.route('/api/etiquetas/guardar', methods=['POST'])
+def guardar_etiqueta():
+    jsonData = request.json
+
+    etiqueta = ValorEtiqueta()
+    etiqueta.fecha = jsonData["fecha"]
+    etiqueta.valor = jsonData["valor"]
+    etiqueta.validacion = jsonData["validacion"]
+
+    return jsonify(msg="Etiqueta guardado correctamente"), 200
+
+@etiquetas.route('/api/etiquetas/eliminar/<int:etiqueta_id>', methods=['DELETE'])
+def eliminar_etiqueta(etiqueta_id):
+    if etiqueta_id == None:
+        return jsonify(msg="Debe indicar un id de etiqueta"), 400
+
+    etiqueta = db_session.query(Etiqueta).filter(Etiqueta.id==etiqueta_id).first()
+    db_session.delete(etiqueta)
+    db_session.commit()
+    return jsonify(msg="Etiqueta eliminada correctamente"), 200
+
+# @valor_etiquetas.route('/api/valor_tiquetas', methods=['POST'])
+# def etiquetas_post():
+#     try:
+#         etiqueta = ValorEtiqueta()
+#         jsonData = request.json
+#         etiqueta.celula_id

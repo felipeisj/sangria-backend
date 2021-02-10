@@ -10,7 +10,7 @@ def separar(path):
     img = cv2.imread(path)
     asd = img
     image = img
-    name = path[-12:]
+    name = path[-11:]
     image = cv2.resize(image, (1080, 1080))
     newPath = "./generated/%s"%name
     nombre_celulas = list()

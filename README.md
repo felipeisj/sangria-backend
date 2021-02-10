@@ -14,6 +14,7 @@ Algoritmo que analiza imágenes de muestras de sangre e identifica la cantidad d
 * Database configuration
 * How to run tests
 * Deployment instructions
+* Versíon de librería PyJWT==1.7.1
 
 ### Who do I talk to? ###
 

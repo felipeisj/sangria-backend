@@ -1,21 +1,19 @@
-from flask import Blueprint, jsonify, json, request
+from flask import Blueprint, jsonify, json, request, send_from_directory, current_app
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from core.db.models import Celula
 from core.db.config import session as db_session
 from core.utils import row_to_dict, queryLike
-
+from sqlalchemy.sql.expression import func, select
+import os
 
 celulas = Blueprint('celulas', __name__)
 
-@celulas.route('/api/celulas/<int:muestra_id>', methods=['GET'])
-
-
-
-def muestra_celulas(muestra_id):
+@celulas.route('/api/celulas', methods=['GET'])
+def muestra_celulas():
 
     query = db_session.query(Celula)
     
-    texto = request.args.get('texto')    
+    texto = request.args.get('texto') 
     if texto:
         campos = [Celula.id, Celula.fecha, Celula.muestra_id, Celula.path]
         query = queryLike(query, texto, campos)
@@ -28,21 +26,23 @@ def muestra_celulas(muestra_id):
         datos.append({
             'id': row.id,
             'muestra_id': row.muestra_id,
-            'path': row.path
+            'path': row.path 
         })
 
     return jsonify(Muestras=datos), 200
 
-
-'''
-@celulas.route('/api/celulas/adjudicados/', methods=['GET'])
-def listado_adjudicados():
-    datos = listado_celulas()
-    return jsonify(celulas=datos), 200
-
-
-@celulas.route('/api/celulas/seguidos/', methods=['GET'])
-def listado_seguidos():
-    datos = listado_celulas(seguidos=True)
-    return jsonify(celulas=datos), 200
-'''
+@celulas.route('/api/celula', methods=['GET'])
+def get_celula():
+    query = db_session.query(Celula).order_by(func.random()).first()
+    url = request.url_root + "api/celula/imagen/" + query.nombre
+    data = row_to_dict(query,['id', 'nombre', 'path'])
+    data["url_imagen"] = url
+    print(data)
+    return jsonify(celula=data), 200
+    #devolver localhost:5000:/api/celula/nombreCelula.jpg
+  
+@celulas.route('/api/celula/imagen/<string:nombre>', methods=['GET'])
+def get_imagen(nombre):
+    cwd = os.getcwd() + "/core/generated/50HD0037.JPG/"
+    print(cwd)
+    return send_from_directory(cwd, nombre)

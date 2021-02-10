@@ -40,15 +40,31 @@ class Muestra(Base):
 
 class Celula(Base):
     muestra_id = ForeignKey(Muestra)
+    nombre = Column(String(200))
     muestra = relationship('Muestra', backref=backref('celulas'))
     path = Column(String(200))
 
+class Categoria(Base):
+    nombre = Column(String(200))
+    descripcion = Column(String(200))
+    ejemplo = Column(String(200))
+
 class Etiqueta(Base):
+    categoria_id = ForeignKey(Categoria)
+    nombre = Column(String(200))
+    ruta_ejemplo = Column(String(200))
+    descripcion = Column(String(400))
+
+class ValorEtiqueta(Base):
     celula_id = ForeignKey(Celula)
-    celula = relationship('Celula', backref=backref('etiquetas'))
+    celula = relationship('Celula', backref=backref('valor_etiquetas'))
     usuario_id = ForeignKey(Usuario)
-    usuario = relationship('Usuario', backref=backref('etiquetas'))
+    usuario = relationship('Usuario', backref=backref('valor_etiquetas'))
+    etiqueta_id = ForeignKey(Etiqueta)
+    etiqueta = relationship('Etiqueta', backref=backref('valor_etiquetas'))
     fecha = Column(DateTime())
-    valor = Column(Integer())
+    valor = Column(String(200))
     validacion = Column(Boolean, default=False)
+
+
 
