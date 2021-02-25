@@ -27,6 +27,7 @@ class Usuario(Base):
         49, 103, 113, 56, 120, 41, 54, 36, 41, 56, 95, 41, 95])
     password = Column(String(500), nullable=False)
     nombre = Column(String(200))
+    habilitado = Column(Boolean(), nullable=False, default=True)
     @staticmethod
     def hash_password(password):
         return hashlib.sha512(
@@ -46,25 +47,30 @@ class Celula(Base):
 
 class Categoria(Base):
     nombre = Column(String(200))
+    dependencia_id = Column(Integer)
+    alteracion = Column(Boolean, default = False)
     descripcion = Column(String(200))
     ejemplo = Column(String(200))
 
 class Etiqueta(Base):
     categoria_id = ForeignKey(Categoria)
     nombre = Column(String(200))
-    ruta_ejemplo = Column(String(200))
+    ejemplo = Column(String(200))
     descripcion = Column(String(400))
 
 class ValorEtiqueta(Base):
     celula_id = ForeignKey(Celula)
     celula = relationship('Celula', backref=backref('valor_etiquetas'))
-    usuario_id = ForeignKey(Usuario)
-    usuario = relationship('Usuario', backref=backref('valor_etiquetas'))
     etiqueta_id = ForeignKey(Etiqueta)
     etiqueta = relationship('Etiqueta', backref=backref('valor_etiquetas'))
-    fecha = Column(DateTime())
     valor = Column(String(200))
     validacion = Column(Boolean, default=False)
+
+class Respuesta(Base):
+     usuario_id = ForeignKey(Usuario)
+     fecha = Column(DateTime())
+
+
 
 
 

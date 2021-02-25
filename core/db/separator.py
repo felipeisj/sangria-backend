@@ -151,15 +151,11 @@ def separar(path):
                         maximoyT = maximoyT - 25
             #cv2.drawContours(white, contours, i, (0,0,0), 0)
             out= inp[minimoyT-25:maximoyT+25, minimoxT-25:maximoxT+25]
-            out= cv2.resize(out, (1080, 1080))
+            out= cv2.resize(out, (128, 128))
             filename = newPath+'/muestra_%d.jpg'%j
             cv2.imwrite(filename, out)
             nombre_celulas.append(filename)
             j+=1
-            #print("out")
-            #plt.imshow(out)
-            #plt.show()
-
         i+=1
     #k+=1
     return nombre_celulas

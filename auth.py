@@ -27,8 +27,6 @@ def asignar_usuario(user):
 @auth.route('/auth/login', methods=['POST'])
 def login():
 
-    #username = request.form.get("username")
-    #password = request.form.get("password")
     username = request.json.get('username', None)
     password = request.json.get('password', None)
 
@@ -48,11 +46,8 @@ def login():
     print(usuario.nombre)
     if usuario:
         expires = datetime.timedelta(hours=16)
-        print(expires)
         access_token = create_access_token(identity=usuario, expires_delta=expires)
-        print(access_token)
         usuario_dict = row_to_dict(usuario, ["id", "nombre"])
-        print(usuario_dict)
         return jsonify(access_token=access_token, usuario=usuario_dict), 200
     else:
         return jsonify(msg="Error en el usuario o la contraseña"), 401

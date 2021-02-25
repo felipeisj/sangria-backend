@@ -37,12 +37,15 @@ def get_celula():
     url = request.url_root + "api/celula/imagen/" + query.nombre
     data = row_to_dict(query,['id', 'nombre', 'path'])
     data["url_imagen"] = url
-    print(data)
     return jsonify(celula=data), 200
-    #devolver localhost:5000:/api/celula/nombreCelula.jpg
   
 @celulas.route('/api/celula/imagen/<string:nombre>', methods=['GET'])
 def get_imagen(nombre):
     cwd = os.getcwd() + "/core/generated/50HD0037.JPG/"
-    print(cwd)
     return send_from_directory(cwd, nombre)
+
+# @celulas.route('/api/celula/imagen/ejemplo/<string:nombre>', methods=['GET'])
+# def get_imagen(nombre):
+#     cwd = os.getcwd() + "/core/fotos_etiquetadas/"
+#     print(cwd)
+#     return send_from_directory(cwd, nombre)
