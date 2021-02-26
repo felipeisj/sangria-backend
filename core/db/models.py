@@ -49,7 +49,7 @@ class Celula(Base):
 
 class Categoria(Base):
     nombre = Column(String(200))
-    dependencia_id = ForeignKey(Categoria, {'ondelete': 'restrict'}, {'nullable': False})
+    dependencia_id = ForeignKey("Categoria", {'ondelete': 'restrict', 'deferrable': True}, {'nullable': False})
     alteracion = Column(Boolean, default = False)
     descripcion = Column(String(200))
     ejemplo = Column(String(200))
@@ -61,6 +61,10 @@ class Etiqueta(Base):
     descripcion = Column(String(400))
     valores_etiquetas = relationship('ValorEtiqueta', backref=backref('valor_etiquetas'))
 
+class Respuesta(Base):
+     usuario_id = ForeignKey(Usuario, {'ondelete': 'restrict'}, {'nullable': False})
+     fecha = Column(DateTime())
+
 class ValorEtiqueta(Base):
     celula_id = ForeignKey(Celula, {'ondelete': 'restrict'}, {'nullable': False})
     celula = relationship('Celula', backref=backref('valor_etiquetas'))
@@ -68,12 +72,5 @@ class ValorEtiqueta(Base):
     valor = Column(String(200))
     validacion = Column(Boolean, default=False)
     respuesta_id = ForeignKey(Respuesta, {'ondelete': 'restrict'}, {'nullable': False})
-
-class Respuesta(Base):
-     usuario_id = ForeignKey(Usuario, {'ondelete': 'restrict'}, {'nullable': False})
-     fecha = Column(DateTime())
-
-
-
 
 

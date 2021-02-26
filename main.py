@@ -34,6 +34,7 @@ from api.celulas import celulas
 from api.muestras import muestras
 from api.usuarios import usuarios
 from api.categorias import categorias
+from api.respuestas import respuestas
 
 
 app.register_blueprint(auth)
@@ -42,6 +43,8 @@ app.register_blueprint(muestras)
 app.register_blueprint(celulas)
 app.register_blueprint(etiquetas)
 app.register_blueprint(categorias)
+app.register_blueprint(respuestas)
+
 
 @app.route("/")
 @cross_origin()
