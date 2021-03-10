@@ -1,19 +1,15 @@
 import uuid
-
 import flask
-
 from flask import (
     request,
     redirect,
     url_for,
     session as flask_session)
-
 from core import settings, utils
 from core.db.config import session
 from core.db import models
 from flask_cors import CORS, cross_origin
 from flask_jwt_extended import JWTManager
-
 
 app = flask.Flask(__name__)
 # Permitir solicitudes cross domain
@@ -36,7 +32,6 @@ from api.usuarios import usuarios
 from api.categorias import categorias
 from api.respuestas import respuestas
 
-
 app.register_blueprint(auth)
 app.register_blueprint(usuarios)
 app.register_blueprint(muestras)
@@ -44,7 +39,6 @@ app.register_blueprint(celulas)
 app.register_blueprint(etiquetas)
 app.register_blueprint(categorias)
 app.register_blueprint(respuestas)
-
 
 @app.route("/")
 @cross_origin()

@@ -19,7 +19,6 @@ from sqlalchemy.orm import (
 from core import settings
 from core.db.config import Base, ForeignKey, session
 
-
 class Usuario(Base):
     # SALT estático para todos los usuarios
     STATIC_SALT = u"".join(chr(c) for c in [
@@ -49,7 +48,7 @@ class Celula(Base):
 
 class Categoria(Base):
     nombre = Column(String(200))
-    dependencia_id = ForeignKey("Categoria", {'ondelete': 'restrict', 'deferrable': True}, {'nullable': False})
+    dependencia_id = ForeignKey("Categoria", {'ondelete': 'restrict', 'deferrable': True})
     alteracion = Column(Boolean, default = False)
     descripcion = Column(String(200))
     ejemplo = Column(String(200))
@@ -71,6 +70,4 @@ class ValorEtiqueta(Base):
     etiqueta_id = ForeignKey(Etiqueta, {'ondelete': 'restrict'}, {'nullable': False})
     valor = Column(String(200))
     validacion = Column(Boolean, default=False)
-    respuesta_id = ForeignKey(Respuesta, {'ondelete': 'restrict'}, {'nullable': False})
-
-
+    respuesta_id = ForeignKey(Respuesta, {'ondelete': 'restrict'})
