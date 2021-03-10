@@ -74,7 +74,7 @@ def crear_etiquetas():
         {'id': 4, 'categoria_id': 1, 'nombre': 'normoblasto ortocromático',
         'ejemplo': 'normoblasto_ortocromatico.png', 'descripcion': 'Precursor'},
         {'id': 5, 'categoria_id': 1, 'nombre': 'eritrocito policromático',
-        'ejemplo': 'eritrocito_policromático.png', 'descripcion': 'Periférico'},
+        'ejemplo': 'eritrocito_policromatico.png', 'descripcion': 'Periférico'},
         {'id': 6, 'categoria_id': 1, 'nombre': 'eritrocito',
         'ejemplo': 'eritrocito.png', 'descripcion': 'Periférico'},
         ###  Alteraciones eritrocitos   ###
@@ -275,7 +275,6 @@ def separa_cells(url, id_muestra):
     for nombre_celula in nombre_celulas:
         if not any(f['path'] == nombre_celula for f in celulas):
             pk_celula += 1
-            print(pk_celula)
             nombre_celula = nombre_celula[24:]
             celulas.append({
                 'id': pk_celula,

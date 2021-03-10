@@ -20,10 +20,8 @@ etiquetas = Blueprint('etiquetas', __name__)
 @etiquetas.route('/api/etiquetas', methods=['GET'])
 def listado_etiquetas():
     query = db_session.query(Etiqueta)
-    print(query)    
     categoria = request.args.get('categoria_id')
     url = request.url_root + "api/etiquetas/imagen/"
-    print(url)
     if categoria:
         query = query.filter(Etiqueta.categoria_id==categoria)
     resultado = query.all()
@@ -41,9 +39,6 @@ def listado_etiquetas():
 @etiquetas.route('/api/etiquetas/imagen/<string:nombre>', methods=['GET'])
 def get_imagen(nombre):
     cwd = os.getcwd() + "/core/fotos_etiquetas/"
-    print(cwd)
-    print(nombre)
-
     return send_from_directory(cwd, nombre)     
 
 @etiquetas.route('/api/valor-etiqueta', methods=['POST'])
@@ -56,11 +51,9 @@ def guardar_etiqueta():
     respuesta.usuario_id = usuario.id
     db_session.add(respuesta)
     db_session.flush()
-    print(respuesta.id)
 
     # almacenando registro de etiqueta
     jsonData = request.json
-    print(jsonData)
     etiqueta = ValorEtiqueta()
     etiqueta.valor = jsonData["valor_etiqueta"]
     etiqueta.celula_id = jsonData["celula_id"]
@@ -71,7 +64,6 @@ def guardar_etiqueta():
 
     # almacenando registro de alteracion
     if(jsonData["alteracion_id"] != "" and jsonData["alteracion_id"] is not None):
-        print("------- entramos -----")
         alteracion = ValorEtiqueta()
         # alteracion.valor = jsonData["valor_alteracion"]
         alteracion.celula_id = jsonData["celula_id"]
