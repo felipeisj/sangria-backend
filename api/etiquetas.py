@@ -18,6 +18,7 @@ import os
 etiquetas = Blueprint('etiquetas', __name__)
 
 @etiquetas.route('/api/etiquetas', methods=['GET'])
+@jwt_required
 def listado_etiquetas():
     query = db_session.query(Etiqueta)
     categoria = request.args.get('categoria_id')
@@ -42,6 +43,7 @@ def get_imagen(nombre):
     return send_from_directory(cwd, nombre)     
 
 @etiquetas.route('/api/valor-etiqueta', methods=['POST'])
+@jwt_required
 def guardar_etiqueta():
     # almacena respuesta
     respuesta = Respuesta()

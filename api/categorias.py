@@ -8,6 +8,7 @@ from core.utils import row_to_dict, queryLike
 categorias = Blueprint('categorias', __name__)
 
 @categorias.route('/api/categorias', methods=['GET'])
+@jwt_required
 def categorias_etiquetas():
     query = db_session.query(Categoria)
     resultado = query.filter(Categoria.alteracion==False, Categoria.dependencia_id==None)    
@@ -26,6 +27,7 @@ def categorias_etiquetas():
     return jsonify(categorias=datos), 200
 
 @categorias.route('/api/categoria/<int:categoria_id>/sub-categorias', methods=['GET'])
+@jwt_required
 def sub_categoria(categoria_id=None):
     if categoria_id is None:
         return jsonify(mensaje="error, consulta no válida"), 500
@@ -46,6 +48,7 @@ def sub_categoria(categoria_id=None):
     return jsonify(categorias=datos), 200
     
 @categorias.route('/api/categorias/alteraciones', methods=['GET'])
+@jwt_required
 def mostrar_alteraciones():
     query = db_session.query(Categoria)
     alteracion = request.args.get('categoria_id')

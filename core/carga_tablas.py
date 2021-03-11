@@ -52,13 +52,13 @@ def crear_usuarios():
     global pk_usuario
     usuarios = [
         {'id': 1, 'nombre': 'felipe salazar',
-        'password': hash_password('1234'), 'habilitado': True},
+        'password': hash_password('1234'), 'habilitado': True, 'academico': True},
         {'id': 2, 'nombre': 'patricio canales',
-        'password': hash_password('1234'), 'habilitado': True},
+        'password': hash_password('1234'), 'habilitado': True, 'academico': False},
         {'id': 3, 'nombre': 'cristian rojas',
-        'password': hash_password('1234'), 'habilitado': True},
+        'password': hash_password('1234'), 'habilitado': True, 'academico': False},
         {'id': 4, 'nombre': 'diego carrera',
-        'password': hash_password('1234'), 'habilitado': True}]
+        'password': hash_password('1234'), 'habilitado': True, 'academico': False}]
 
 def crear_etiquetas():
     global etiquetas

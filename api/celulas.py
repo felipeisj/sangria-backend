@@ -9,6 +9,7 @@ import os
 celulas = Blueprint('celulas', __name__)
 
 @celulas.route('/api/celulas', methods=['GET'])
+@jwt_required
 def muestra_celulas():
     query = db_session.query(Celula)   
     texto = request.args.get('texto') 
@@ -16,7 +17,6 @@ def muestra_celulas():
         campos = [Celula.id, Celula.fecha, Celula.muestra_id, Celula.path]
         query = queryLike(query, texto, campos)    
     resultado = query.all()
-    
     datos = list()
     for row in resultado:
         dato = row_to_dict(row, row.__table__.columns.keys())
@@ -29,14 +29,22 @@ def muestra_celulas():
     return jsonify(Muestras=datos), 200
 
 @celulas.route('/api/celula', methods=['GET'])
+@jwt_required
 def get_celula():
+    #1 obtener token usuario
+    #2 Con token obtener usuario bd
+    #3 Consultar si es profesor
+    #4 Si es profesor, mostrar imagen que haya sido respondida, si no, random.
+
     query = db_session.query(Celula).order_by(func.random()).first()
     url = request.url_root + "api/celula/imagen/" + query.nombre
     data = row_to_dict(query,['id', 'nombre', 'path'])
     data["url_imagen"] = url
+    print(data)
     return jsonify(celula=data), 200
   
 @celulas.route('/api/celula/imagen/<string:nombre>', methods=['GET'])
+@jwt_required
 def get_imagen(nombre):
     cwd = os.getcwd() + "/core/generated/50HD0037.JPG/"
     return send_from_directory(cwd, nombre)

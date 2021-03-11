@@ -27,6 +27,7 @@ class Usuario(Base):
     password = Column(String(500), nullable=False)
     nombre = Column(String(200))
     habilitado = Column(Boolean(), nullable=False, default=True)
+    academico = Column(Boolean(), nullable=False, default=False)
     @staticmethod
     def hash_password(password):
         return hashlib.sha512(

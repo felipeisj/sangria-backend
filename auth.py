@@ -12,7 +12,6 @@ from flask_jwt_extended import (
     get_jwt_claims,
     verify_jwt_in_request)
 from main import jwt
-#import simplejson as json
 import json
 
 auth = Blueprint('auth', __name__)
@@ -30,9 +29,6 @@ def login():
     username = request.json.get('username', None)
     password = request.json.get('password', None)
 
-    print(username)
-    #return jsonify(access_token="access_token"), 200
-
     if username == "":
         return jsonify({"msg": "Debe indicar el usuario"}), 400
     if password == "":
@@ -42,12 +38,10 @@ def login():
     usuario = db_session.query(Usuario).\
         filter(Usuario.nombre == username,
                 Usuario.password == salted).first()
-    print("Aqui va el usuario")
-    print(usuario.nombre)
     if usuario:
         expires = datetime.timedelta(hours=16)
         access_token = create_access_token(identity=usuario, expires_delta=expires)
-        usuario_dict = row_to_dict(usuario, ["id", "nombre"])
+        usuario_dict = row_to_dict(usuario, ["id", "nombre", "academico"])
         return jsonify(access_token=access_token, usuario=usuario_dict), 200
     else:
         return jsonify(msg="Error en el usuario o la contraseña"), 401
