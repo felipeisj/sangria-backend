@@ -22,3 +22,12 @@ Algoritmo que analiza imágenes de muestras de sangre e identifica la cantidad d
 * Other community or team contact
 
 crrojasperez@gmail.com
+
+### Instalación
+
+* Clonar proyecto desde git.
+* Descargar imágenes y descomprimir en carpeta **core**.
+* Crear base de datos llamada **sangria**.
+* Ejecutar **entry.py** en carpeta raíz para crear tablas y bajar servidor.
+* Ejecutar **carga_tablas.py** en carpeta **/core**.
+* Volver a ejecutar **entry.py** en carpeta raíz para poner el servidor a funcionar.
