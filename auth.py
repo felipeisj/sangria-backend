@@ -16,12 +16,13 @@ import json
 
 auth = Blueprint('auth', __name__)
 
-
 @jwt.user_identity_loader
 def asignar_usuario(user):
     return user.nombre
 
-
+@jwt.user_claims_loader
+def asignar_roles(user):   
+    return user.id
 
 @auth.route('/auth/login', methods=['POST'])
 def login():

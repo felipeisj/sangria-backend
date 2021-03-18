@@ -114,45 +114,45 @@ def crear_etiquetas():
         # línea leucocito
         # Mieloblasto y Promielocito: primeros dos precursores granulocitos (neutrofilo eosinofilo y basofilo)
         {'id': 18, 'categoria_id': 9, 'nombre': 'mieloblasto',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'mieloblasto.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 19, 'categoria_id': 9, 'nombre': 'Promielocito',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'promielocito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         # Neutrofilo
-        {'id': 20, 'categoria_id': 9, 'nombre': 'Mielocito',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
-        {'id': 21, 'categoria_id': 9, 'nombre': 'MetaMielocito',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
-        {'id': 22, 'categoria_id': 9, 'nombre': 'Banda',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        {'id': 20, 'categoria_id': 9, 'nombre': 'Mielocito Neutrófilo',
+        'ejemplo': 'mielocito_neutrofilo.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        {'id': 21, 'categoria_id': 9, 'nombre': 'MetaMielocito Neutrófilo',
+        'ejemplo': 'meta-mielocito_neutrofilo.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        {'id': 22, 'categoria_id': 9, 'nombre': 'Banda Neutrófilo',
+        'ejemplo': 'banda_neutrofilo.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 23, 'categoria_id': 9, 'nombre': 'Neutrófilo Segmentado',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'neutrofilo.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         # Eosinófilo
         {'id': 24, 'categoria_id': 10, 'nombre': 'Mielocito Eosinofílico',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'mielocito_eosinofilo.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 25, 'categoria_id': 10, 'nombre': 'Metamielocito Eosinofílico',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'meta-mielocito_eosinofilo.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 26, 'categoria_id': 10, 'nombre': 'Banda Eosinofílico',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'banda_eosinofilo.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 27, 'categoria_id': 10, 'nombre': 'Eosinófilo',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
-        # Basófilo
+        'ejemplo': 'eosinofilo.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        # Basófilo #metamielocito y banda igual a neutrofilo
         {'id': 28, 'categoria_id': 11, 'nombre': 'Mielocito Basofílico',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'mielocito_basofilo.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 29, 'categoria_id': 11, 'nombre': 'MetaMielocito basofílico',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'meta-mielocito_neutrofilo.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 30, 'categoria_id': 11, 'nombre': 'Banda Basofílico',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'banda_neutrofilo.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 31, 'categoria_id': 11, 'nombre': 'Basófilo',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'basofilo.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         # maduración Monocito
         {'id': 32, 'categoria_id': 13, 'nombre': 'Monoblasto',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'monoblasto.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 33, 'categoria_id': 13, 'nombre': 'Promonocito',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'promonocito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 34, 'categoria_id': 13, 'nombre': 'Monocito',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'monocito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 35, 'categoria_id': 13, 'nombre': 'Macrófago',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'macrofago.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         # maduración Linfocitos
         {'id': 36, 'categoria_id': 12, 'nombre': 'Linfoide Progenitor Común',
         'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
@@ -178,33 +178,33 @@ def crear_etiquetas():
         'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         # Alteraciones Leucocitos
         {'id': 46, 'categoria_id': 7, 'nombre': 'Hiposegmentación de Neutrófilos',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'hiposegmentacion_neutrofilos.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 47, 'categoria_id': 7, 'nombre': 'Hipersegmentación de Neutrófilos',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'hipersegmentacion_neutrofilos.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 48, 'categoria_id': 8, 'nombre': 'Vacuolación',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'vacuolacion.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 49, 'categoria_id': 8, 'nombre': 'Cuerpo de Döhle',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'cuerpo_dohle.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 50, 'categoria_id': 7, 'nombre': 'Granulación Tóxica',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'granulacion_toxica.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 51, 'categoria_id': 8, 'nombre': 'Hipogranulación/Agranulación',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'hipogranulacion.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 52, 'categoria_id': 8, 'nombre': 'Linfocitos Reactivos',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'linfocitos_reactivos.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         # línea Plaquetas
         {'id': 53, 'categoria_id': 3, 'nombre': 'Megacarioblasto MK-I',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'megacarioblasto.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 54, 'categoria_id': 3, 'nombre': 'Promegacariocito MK-II',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'promegacariocito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 55, 'categoria_id': 3, 'nombre': 'Megacariocito MK-III',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'megacariocito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 56, 'categoria_id': 3, 'nombre': 'Plaqueta',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'plaqueta.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         # Alteraciones plaquetas
         {'id': 57, 'categoria_id': 14, 'nombre': 'Plaqueta grande',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'plaqueta_gigante.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         {'id': 58, 'categoria_id': 14, 'nombre': 'Plaqueta gigante',
-        'ejemplo': 'microcito.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
+        'ejemplo': 'plaqueta_gigante.png', 'descripcion': 'Variación tamaño: MCV < 80fL'},
         ]
 
 def crear_categorias():
@@ -311,11 +311,11 @@ def transacciones(conexion):
 
 if __name__ == "__main__":
 
-    conexion = conexion_bd('localhost','postgres', 'asd31222', 'sangria')
-    ruta = "./dataset/50HD0037.JPG"
+    conexion = conexion_bd('localhost','postgres', 'asd31222', 'sangria')  
     crear_usuarios()
-    muestra_id = cargar_muestras(ruta)
-    separa_cells(ruta, muestra_id)
     crear_etiquetas()
     crear_categorias()
+    for ruta in glob.glob("./dataset/*.JPG"):
+        muestra_id = cargar_muestras(ruta)
+        separa_cells(ruta, muestra_id)
     transacciones(conexion)

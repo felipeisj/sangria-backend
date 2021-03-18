@@ -10,7 +10,7 @@ def separar(path):
     img = cv2.imread(path)
     asd = img
     image = img
-    name = path[-11:]
+    name = path[-12:]
     image = cv2.resize(image, (1080, 1080))
     newPath = "./generated/%s"%name
     nombre_celulas = list()
@@ -59,7 +59,6 @@ def separar(path):
 
         # Define parameters.  
 
-
     r1 = 50
     s1 = 0
     r2 = 180
@@ -95,7 +94,6 @@ def separar(path):
     dis = cv2.resize(dis, (1080, 1080))
 
     contours, hierarchy = cv2.findContours(edgeM, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-
 
     #print("Number of contours = " + str(len(contours)))
 
@@ -151,7 +149,7 @@ def separar(path):
                         maximoyT = maximoyT - 25
             #cv2.drawContours(white, contours, i, (0,0,0), 0)
             out= inp[minimoyT-25:maximoyT+25, minimoxT-25:maximoxT+25]
-            out= cv2.resize(out, (128, 128))
+            out= cv2.resize(out, (128, 240))
             filename = newPath+'/muestra_%d.jpg'%j
             cv2.imwrite(filename, out)
             nombre_celulas.append(filename)
