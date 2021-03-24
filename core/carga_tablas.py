@@ -313,9 +313,9 @@ if __name__ == "__main__":
 
     conexion = conexion_bd('localhost','postgres', 'asd31222', 'sangria')  
     crear_usuarios()
-    crear_etiquetas()
-    crear_categorias()
     for ruta in glob.glob("./dataset/*.JPG"):
         muestra_id = cargar_muestras(ruta)
         separa_cells(ruta, muestra_id)
+    crear_etiquetas()
+    crear_categorias()
     transacciones(conexion)

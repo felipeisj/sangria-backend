@@ -10,11 +10,9 @@ from flask_jwt_extended import (
     get_jwt_claims,
     verify_jwt_in_request)
 
-
 valor_etiquetas = Blueprint('valor_etiquetas', __name__)
 
-@valor_etiquetas.route('/api/valor_tiquetas', methods=['GET'])
-
+@valor_etiquetas.route('/api/valor-tiquetas', methods=['GET'])
 def etiquetas_get():
 
     query = db_session.query(ValorEtiqueta)

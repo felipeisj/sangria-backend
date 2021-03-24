@@ -14,7 +14,6 @@ Algoritmo que analiza imágenes de muestras de sangre e identifica la cantidad d
 * Database configuration
 * How to run tests
 * Deployment instructions
-* Versíon de librería PyJWT==1.7.1
 
 ### Who do I talk to? ###
 
@@ -26,6 +25,10 @@ crrojasperez@gmail.com
 ### Instalación
 
 * Clonar proyecto desde git.
+* Crear entorno virtual en python siguiente las instrucciones del sitio oficial: **https://pypi.org/project/virtualenv/**
+* Acceder al entorno virtual dentro del proyecto.
+* Versiones a tomar en cuenta: Python 3.6 o superior, versíon de librería PyJWT==1.7.1 (en caso de que no sea ésta, ejecutar **pip install PyJWT==1.7.1**)
+* Ejecutar comando en consola **pip install -r requirements.txt**
 * Descargar imágenes y descomprimir en carpeta **core**.
 * Crear base de datos llamada **sangria**.
 * Ejecutar **entry.py** en carpeta raíz para crear tablas y bajar servidor.

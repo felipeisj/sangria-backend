@@ -93,7 +93,7 @@ def guardar_etiqueta():
 
     return jsonify(mensaje="info almacenada"), 200
 
-@etiquetas.route('/api/etiquetas/eliminar/<int:etiqueta_id>', methods=['DELETE'])
+@etiquetas.route('/api/etiquetas/<int:etiqueta_id>', methods=['DELETE'])
 def eliminar_etiqueta(etiqueta_id):
     if etiqueta_id == None:
         return jsonify(msg="Debe indicar un id de etiqueta"), 400

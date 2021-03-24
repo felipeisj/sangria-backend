@@ -2,3 +2,4 @@ core/dataset/
 core/generated/
 core/fotos_etiquetas/
 core/muestras_enfermas/
+.env3/
