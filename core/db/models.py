@@ -68,7 +68,7 @@ class Respuesta(Base):
 class ValorEtiqueta(Base):
     celula_id = ForeignKey(Celula, {'ondelete': 'restrict'}, {'nullable': False})
     celula = relationship('Celula', backref=backref('valor_etiquetas'))
-    etiqueta_id = ForeignKey(Etiqueta, {'ondelete': 'restrict'}, {'nullable': False})
+    etiqueta_id = ForeignKey(Etiqueta, {'ondelete': 'restrict'})
     valor = Column(String(200))
     validacion = Column(Boolean, default=False)
     respuesta_id = ForeignKey(Respuesta, {'ondelete': 'restrict'})
